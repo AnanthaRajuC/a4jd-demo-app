@@ -1,4 +1,92 @@
-# DemoApp
+# Angular for Java developers - demo application
+
+## Steps to recreate this app
+Install Angular CLI:
+`npm install -g @angular/cli` 
+
+Generate new app, open in IDE:  
+`ng new demo-app` 
+> Would you like to add Angular routing? (y/N)
+Answer 'y'
+> Which stylesheet format would you like to use? 
+Choose 'SCSS'
+
+ 
+```cd demo-app`  
+`idea .`
+
+Inspect the project structure
+
+`ng serve`
+
+Open app at `http://localhost:4200`
+
+Test/lint app:  
+`ng test`  
+`ng e2e`  
+`ng lint`
+
+Add Angular material:  
+`ng add @angular/material`
+
+
+> Enter a prebuilt theme name, or "custom" for a custom theme:   
+
+indigo-pink  
+  
+> Set up HammerJS for gesture recognition?
+  
+No    
+> Set up browser animations for Angular Material?    
+
+Yes    
+  
+`npm add @angular/cdk@latest`
+
+Note: material schematics are broken in material 6.3.0. If the above command produces an error "Collection "@angular/material" cannot be resolved.", try this:  
+`ng add @angular/material@6.2.1`  
+`npm add @angular/cdk@6.2.1`  
+  
+Generate navigation component:  
+`ng generate @angular/material:material-nav --name navigation`
+
+Cleanup navigation component a bit
+
+Generate home component:  
+`ng generate component home`  
+    
+Move home screen to home component  
+Add home component inside `mat-sidenav-content` of navigation comoponent
+
+Edit app component: add container div, height 100vh
+
+Add routing  
+
+Generate dashboard/grid:  
+`ng generate @angular/material:material-dashboard --name dashboard`
+  
+Change navigation links to [routerLink]'s    
+Add dashboard to routes. 
+  
+Generate table:  
+`ng generate @angular/material:material-table --name talks`
+
+Start backend (https://github.com/bertjan/a4jd-demo-backend)
+
+Generate service:  
+`ng generate service talks/talks`
+
+Update talks component: use service to fetch data from backend 
+
+Create production build:  
+`ng build --aot --prod` 
+
+Navigate to directory `dist/demo-app`  
+Start production build in nginx:   
+`docker run --mount type=bind,source="$(pwd)",target=/usr/share/nginx/html -p 80:80 nginx`
+
+
+# Default Angular readme
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.0.2.
 
