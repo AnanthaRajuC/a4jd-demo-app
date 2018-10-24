@@ -23,7 +23,7 @@ Open app at `http://localhost:4200`
 
 Test/lint app:  
 `ng test`  
-`ng e2e`  
+`ng e2e --port 4242`  
 `ng lint`
 
 Add Angular material:  
