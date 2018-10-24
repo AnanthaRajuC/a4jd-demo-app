@@ -3,6 +3,7 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MatCardModule, MatPaginatorModule, MatSortModule, MatTableModule } from '@angular/material';
 
 import { TalksComponent } from './talks.component';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('TalksComponent', () => {
   let component: TalksComponent;
@@ -16,7 +17,8 @@ describe('TalksComponent', () => {
         MatPaginatorModule,
         MatSortModule,
         MatTableModule,
-        MatCardModule
+        MatCardModule,
+        HttpClientTestingModule
       ]
     }).compileComponents();
   }));
