@@ -41,16 +41,14 @@ No
 
 Yes    
   
-`npm add @angular/cdk@latest`
-
-Note: material schematics are broken in material 6.3.0. If the above command produces an error "Collection "@angular/material" cannot be resolved.", try this:  
-`ng add @angular/material@6.2.1`  
-`npm add @angular/cdk@6.2.1`  
   
 Generate navigation component:  
 `ng generate @angular/material:material-nav --name navigation`
 
 Cleanup navigation component a bit
+
+To fix tests, add to AppModule:
+`providers: [{provide: APP_BASE_HREF, useValue: '/'}],`
 
 Generate home component:  
 `ng generate component home`  
@@ -58,15 +56,13 @@ Generate home component:
 Move home screen to home component  
 Add home component inside `mat-sidenav-content` of navigation comoponent
 
-Edit app component: add container div, height 100vh
-
-Add routing  
+Configure routing
 
 Generate dashboard/grid:  
 `ng generate @angular/material:material-dashboard --name dashboard`
   
 Change navigation links to [routerLink]'s    
-Add dashboard to routes. 
+Add dashboard to routes
   
 Generate table:  
 `ng generate @angular/material:material-table --name talks`
@@ -84,6 +80,8 @@ Create production build:
 Navigate to directory `dist/demo-app`  
 Start production build in nginx:   
 `docker run --mount type=bind,source="$(pwd)",target=/usr/share/nginx/html -p 80:80 nginx`
+
+
 
 
 # Default Angular readme
