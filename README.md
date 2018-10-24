@@ -12,7 +12,7 @@ Answer 'y'
 Choose 'SCSS'
 
  
-```cd demo-app`  
+`cd demo-app`  
 `idea .`
 
 Inspect the project structure
